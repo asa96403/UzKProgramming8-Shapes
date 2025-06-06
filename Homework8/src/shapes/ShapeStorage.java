@@ -31,4 +31,18 @@ public class ShapeStorage<T extends Shape> extends ArrayList<T>{
 			System.out.println(s.toString());
 		}
 	}
+	
+	/**
+	 * adds shapes from another storage to this storage if their area is at least minArea
+	 * @param <U> the TypeParameter of the ShapeStorage passed in, must be a subtype of the TypeParameter of this class
+	 * @param other the ShapeStorage to import shapes from
+	 * @param minArea the minimum area of the shapes to be added to this ShapeStorage
+	 */
+	public <U extends T> void importLargeShapes(ShapeStorage<U> other, double minArea) {
+		for(Shape s: other) {
+			if(s.getArea()>=minArea) {
+				this.add((T) s);
+			}
+		}
+	}
 }
