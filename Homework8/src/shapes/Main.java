@@ -8,7 +8,8 @@ public class Main {
 	public static void main(String[] args) {
 //		main1();
 //		main2();
-		test1();
+//		test1();
+		main3();
 	}
 
 	private static void main1() {
@@ -61,25 +62,33 @@ public class Main {
 		}
 	}
 	
-	private void main3() {
-//		String filename = "shapes.txt";
-//		// 1. Create shapes
-//		List <Shape > shapesToSave = new ArrayList <>();
-//		shapesToSave.add(new Circle (3.5));
-//		shapesToSave.add(new Rectangle (5.5, 3.3));
-//		// optional: Clear the file before saving to it
-//		PersistentShapeManager.clearFile(filename );
-//		// 2. Save to file
-//		PersistentShapeManager
-//		.saveShapesToFile(shapesToSave , filename );
-//		// 3. Load from file
-//		List <Shape > loadedShapes = PersistentShapeManager
-//		.loadShapesFromFile(filename );
-//		// 4. Display loaded shapes
-//		System.out.println (" Shapes loaded from file :");
-//		for (Shape shape : loadedShapes) {
-//		System.out.println(shape );
-//		}
+	private static void main3() {
+		String filename = "shapes.txt";
+		// 1. Create shapes
+		List <Shape > shapesToSave = new ArrayList <>();
+		shapesToSave.add(new Circle (3.5));
+		shapesToSave.add(new Rectangle (5.5, 3.3));
+		// optional: Clear the file before saving to it
+		PersistentShapeManager.clearFile(filename );
+		// 2. Save to file
+		PersistentShapeManager.saveShapesToFile(shapesToSave , filename );
+		// 3. Load from file
+		List <Shape > loadedShapes = PersistentShapeManager.loadShapesFromFile(filename );
+		// 4. Display loaded shapes
+		System.out.println (" Shapes loaded from file :");
+		for (Shape shape : loadedShapes) {
+		System.out.println(shape );
+		}
+		//Extension to test clearFile better
+		List <Shape > shapesToSave2 = new ArrayList <>();
+		shapesToSave.add(new Circle (4.5));
+		PersistentShapeManager.clearFile(filename );
+		PersistentShapeManager.saveShapesToFile(shapesToSave2 , filename );
+		List <Shape > loadedShapes2 = PersistentShapeManager.loadShapesFromFile(filename );
+		System.out.println (" Shapes loaded from file in second iteration :");
+		for (Shape shape : loadedShapes2) {
+		System.out.println(shape );
+		}
 	}
 	
 	/**
