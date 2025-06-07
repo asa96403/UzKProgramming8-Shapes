@@ -7,7 +7,8 @@ import java.util.Map;
 public class Main {
 	public static void main(String[] args) {
 //		main1();
-		main2();
+//		main2();
+		test1();
 	}
 
 	private static void main1() {
@@ -58,5 +59,41 @@ public class Main {
 				System.out.println(" " + shape);
 			}
 		}
+	}
+	
+	private void main3() {
+//		String filename = "shapes.txt";
+//		// 1. Create shapes
+//		List <Shape > shapesToSave = new ArrayList <>();
+//		shapesToSave.add(new Circle (3.5));
+//		shapesToSave.add(new Rectangle (5.5, 3.3));
+//		// optional: Clear the file before saving to it
+//		PersistentShapeManager.clearFile(filename );
+//		// 2. Save to file
+//		PersistentShapeManager
+//		.saveShapesToFile(shapesToSave , filename );
+//		// 3. Load from file
+//		List <Shape > loadedShapes = PersistentShapeManager
+//		.loadShapesFromFile(filename );
+//		// 4. Display loaded shapes
+//		System.out.println (" Shapes loaded from file :");
+//		for (Shape shape : loadedShapes) {
+//		System.out.println(shape );
+//		}
+	}
+	
+	/**
+	 * Test for testing the ShapeFactory Class
+	 * @author aabert
+	 */
+	private static void test1() {
+		String str1 = "Rectangle: width=3.0, length=4.5";
+		Shape shape1 = ShapeFactory.fromString(str1);
+		String str2 = "Circle: radius=5.0";
+		Shape shape2 = ShapeFactory.fromString(str2);
+		System.out.println(shape1.toString());
+		System.out.println(shape2.toString());
+		String str3 = "Rectangle width=3.0, length=4.5";
+		Shape shape3 = ShapeFactory.fromString(str3);
 	}
 }
