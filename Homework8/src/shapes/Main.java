@@ -1,7 +1,16 @@
 package shapes;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Main {
 	public static void main(String[] args) {
+//		main1();
+		main2();
+	}
+
+	private static void main1() {
 		ShapeStorage<Shape> allShapes = new ShapeStorage<>();
 		ShapeStorage<Circle> smallCircles = new ShapeStorage<>();
 		allShapes.add(new Rectangle(2, 3)); // 6 area
@@ -16,5 +25,38 @@ public class Main {
 		System.out.println("Display all Shapes after import of shapes with radius>=10 :");
 		allShapes.displayAllShapes();
 		System.out.printf("\n Total area: %.2f\n", allShapes.getTotalArea());
+	}
+
+	private static void main2() {
+		List<Shape> shapes = new ArrayList<>();
+		shapes.add(new Circle(2.0));
+		shapes.add(new Rectangle(3.0, 4.0));
+		shapes.add(new Circle(1.0));
+		shapes.add(new Rectangle(5.0, 5.0));
+		shapes.add(new Circle(3.5));
+		System.out.println("All Shapes :");
+		for (Shape shape : shapes) {
+			System.out.println(shape);
+		}
+		// filter shapes with area >= 15
+		System.out.println("\n Shapes with area >= 15:");
+		List<Shape> filtered = ShapeAnalyzer.filterByMinArea(shapes, 15);
+		for (Shape shape : filtered) {
+			System.out.println(shape);
+		}
+		// find shape with max area
+		Shape maxShape = ShapeAnalyzer.findShapeWithMaxArea(shapes);
+		System.out.println("\n Shape with max area :");
+		System.out.println(maxShape);
+		// group by type
+		Map<String, List<Shape>> grouped = ShapeAnalyzer.groupByType(shapes);
+		// print
+		System.out.println("\n Grouped by type :");
+		for (Map.Entry<String, List<Shape>> entry : grouped.entrySet()) {
+			System.out.println(entry.getKey() + ":");
+			for (Shape shape : entry.getValue()) {
+				System.out.println(" " + shape);
+			}
+		}
 	}
 }
