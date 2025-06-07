@@ -81,7 +81,7 @@ public class Main {
 		}
 		//Extension to test clearFile better
 		List <Shape > shapesToSave2 = new ArrayList <>();
-		shapesToSave.add(new Circle (4.5));
+		shapesToSave2.add(new Circle (4.5));
 		PersistentShapeManager.clearFile(filename );
 		PersistentShapeManager.saveShapesToFile(shapesToSave2 , filename );
 		List <Shape > loadedShapes2 = PersistentShapeManager.loadShapesFromFile(filename );
